@@ -12,7 +12,7 @@ namespace LessIsBetter
         }
         public string Order(string input)
         {
-            List<int> numbers = new List<int>();
+            List<ulong> numbers = new List<ulong>();
             if (input == String.Empty)
                 return String.Empty;
 
@@ -44,20 +44,20 @@ namespace LessIsBetter
             return index;
         }
 
-        private static int ScanNumber(string text, ref int index)
+        private static ulong ScanNumber(string text, ref int index)
         {
-            var result = 0;
+            ulong result = 0;
             if (text[index] != '0')
                 while (text.Length > index && char.IsNumber(text[index]))
                 {
-                    result = (result * 10) + (text[index] - '0');
+                    result = (result * 10) + (ulong)(text[index] - '0');
                     ++index;
                 }
 
             return result;
         }
 
-        public int CalcWeight(int number, int sum = 0)
+        public ulong CalcWeight(ulong number,  ulong sum = 0)
         {
             if (number != 0)
                 return CalcWeight(number / 10, sum + (number % 10));

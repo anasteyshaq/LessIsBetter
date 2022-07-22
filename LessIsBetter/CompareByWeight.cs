@@ -2,9 +2,9 @@
 
 namespace LessIsBetter
 {
-    internal class CompareByWeight: Comparer<int>
+    internal class CompareByWeight: Comparer<ulong>
     {
-        public override int Compare(int x, int y)
+        public override int Compare(ulong x, ulong y)
         {
             NumberWeight num = new NumberWeight();
             if (num.CalcWeight(x) == num.CalcWeight(y))
